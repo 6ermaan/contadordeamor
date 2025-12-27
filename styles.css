@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+.contador small {
+font-size: .7rem;
+color: #555;
+}
+
+
+.btn {
+background: var(--base);
+color: white;
+border: none;
+padding: .7rem 1.2rem;
+border-radius: 30px;
+cursor: pointer;
+font-size: .9rem;
+transition: transform .2s, background .2s;
+}
+
+
+.btn:hover {
+background: var(--oscuro);
+transform: scale(1.05);
+}
+
+
+.carta p {
+color: #555;
+line-height: 1.6;
+}
+
+
+.firma {
+margin-top: 1.5rem;
+font-weight: 600;
+color: var(--oscuro);
+}
+
+
+.link {
+display: inline-block;
+margin-top: 1rem;
+text-decoration: none;
+color: var(--base);
+font-size: .85rem;
+}
