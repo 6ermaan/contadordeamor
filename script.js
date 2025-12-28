@@ -4,46 +4,38 @@ const fechaInicio = new Date(2025, 9, 28, 0, 0, 0);
 function actualizarContador() {
   const ahora = new Date();
 
-  let anios = ahora.getFullYear() - fechaInicio.getFullYear();
-  let meses = ahora.getMonth() - fechaInicio.getMonth();
-  let dias = ahora.getDate() - fechaInicio.getDate();
-  let horas = ahora.getHours() - fechaInicio.getHours();
-  let minutos = ahora.getMinutes() - fechaInicio.getMinutes();
-  let segundos = ahora.getSeconds() - fechaInicio.getSeconds();
+  // calcular meses completos
+  let meses =
+    (ahora.getFullYear() - fechaInicio.getFullYear()) * 12 +
+    (ahora.getMonth() - fechaInicio.getMonth());
 
-  if (segundos < 0) {
-    segundos += 60;
-    minutos--;
-  }
+  // si aún no llega al 28 a las 00:00 de este mes, restar uno
+  const aniversarioEsteMes = new Date(
+    ahora.getFullYear(),
+    ahora.getMonth(),
+    28,
+    0,
+    0,
+    0
+  );
 
-  if (minutos < 0) {
-    minutos += 60;
-    horas--;
-  }
-
-  if (horas < 0) {
-    horas += 24;
-    dias--;
-  }
-
-  if (dias < 0) {
-    const diasMesAnterior = new Date(
-      ahora.getFullYear(),
-      ahora.getMonth(),
-      0
-    ).getDate();
-    dias += diasMesAnterior;
+  if (ahora < aniversarioEsteMes) {
     meses--;
   }
 
-  if (meses < 0) {
-    meses += 12;
-    anios--;
-  }
+  // último aniversario real
+  const ultimoAniversario = new Date(fechaInicio);
+  ultimoAniversario.setMonth(fechaInicio.getMonth() + meses);
 
-  const mesesTotales = anios * 12 + meses;
+  // diferencia desde el último 28
+  let diff = ahora - ultimoAniversario;
 
-  document.getElementById('meses').textContent = mesesTotales;
+  const segundos = Math.floor(diff / 1000) % 60;
+  const minutos = Math.floor(diff / (1000 * 60)) % 60;
+  const horas = Math.floor(diff / (1000 * 60 * 60)) % 24;
+  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+  document.getElementById('meses').textContent = Math.max(meses, 0);
   document.getElementById('dias').textContent = dias;
   document.getElementById('horas').textContent = horas;
   document.getElementById('minutos').textContent = minutos;
