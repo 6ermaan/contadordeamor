@@ -1,50 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-margin-bottom: 1.2rem;
+
+:root {
+  --base: #bf81e3;
+  --claro: #f4e9fb;
+  --medio: #d9b6f2;
+  --oscuro: #8f5bb8;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--claro), var(--medio));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 22px;
+  width: 92%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.contador {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: .5rem;
+  margin: 1.5rem 0;
+}
+
+.contador div {
+  background: var(--claro);
+  border-radius: 14px;
+  padding: .6rem;
+}
+
+.contador span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--base);
+}
+
+.contador small {
+  font-size: .7rem;
+  color: #555;
+}
+
+.frase {
+  font-style: italic;
+  color: var(--oscuro);
+  margin-bottom: 1.2rem;
+}
 
 .btn {
-background: var(--base);
-color: white;
-border: none;
-padding: .8rem 1.4rem;
-border-radius: 30px;
-cursor: pointer;
-font-size: .95rem;
-transition: transform .2s, background .2s;
+  background: var(--base);
+  color: white;
+  border: none;
+  padding: .8rem 1.4rem;
+  border-radius: 30px;
+  cursor: pointer;
 }
-
-
-.btn:hover {
-background: var(--oscuro);
-transform: scale(1.05);
-}
-
-
-.carta p {
-color: #555;
-line-height: 1.7;
-margin-bottom: 1rem;
-}
-
-
-.firma {
-margin-top: 1.5rem;
-font-weight: 600;
-color: var(--oscuro);
-}
-
-
-.link {
-margin-top: 1rem;
-text-decoration: none;
-color: var(--base);
-font-size: .85rem;
-}
-
 
 .mensaje-hora {
-margin-top: 1rem;
-font-size: .85rem;
-color: #777;
+  margin-top: 1rem;
+  font-size: .85rem;
+  color: #777;
 }
