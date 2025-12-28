@@ -1,4 +1,4 @@
-const fechaInicio = new Date('2025-10-28T00:00:00');
+const fechaInicio = new Date('2025-10-28T12:00:00');
 
 
 function actualizarContador() {
@@ -27,5 +27,21 @@ window.location.href = 'carta.html';
 }
 
 
+function mensajePorHora() {
+const h = new Date().getHours();
+let msg = '';
+
+
+if (h >= 5 && h < 12) msg = 'buenos días, pinguinita ☀️';
+else if (h >= 12 && h < 18) msg = 'espero que tu día esté siendo bonito 💜';
+else if (h >= 18 && h < 22) msg = 'las tardes contigo siempre son mejores ✨';
+else msg = 'si lees esto de noche… estoy contigo 🌙';
+
+
+document.getElementById('mensajeHora').textContent = msg;
+}
+
+
 setInterval(actualizarContador, 1000);
 actualizarContador();
+mensajePorHora();
