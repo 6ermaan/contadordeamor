@@ -2,24 +2,39 @@ const fechaInicio = new Date('2025-10-28T12:00:00');
 
 
 function actualizarContador() {
-const ahora = new Date();
-let diff = ahora - fechaInicio;
+  const ahora = new Date();
 
+  let años = ahora.getFullYear() - fechaInicio.getFullYear();
+  let meses = ahora.getMonth() - fechaInicio.getMonth();
+  let dias = ahora.getDate() - fechaInicio.getDate();
 
-const segundos = Math.floor(diff / 1000) % 60;
-const minutos = Math.floor(diff / (1000 * 60)) % 60;
-const horas = Math.floor(diff / (1000 * 60 * 60)) % 24;
-const diasTotales = Math.floor(diff / (1000 * 60 * 60 * 24));
-const meses = Math.floor(diasTotales / 30);
-const dias = diasTotales % 30;
+  if (dias < 0) {
+    meses--;
+    const mesAnterior = new Date(
+      ahora.getFullYear(),
+      ahora.getMonth(),
+      0
+    ).getDate();
+    dias += mesAnterior;
+  }
 
+  if (meses < 0) {
+    años--;
+    meses += 12;
+  }
 
-document.getElementById('meses').textContent = meses;
-document.getElementById('dias').textContent = dias;
-document.getElementById('horas').textContent = horas;
-document.getElementById('minutos').textContent = minutos;
-document.getElementById('segundos').textContent = segundos;
+  const diff = ahora - fechaInicio;
+  const horas = Math.floor(diff / (1000 * 60 * 60)) % 24;
+  const minutos = Math.floor(diff / (1000 * 60)) % 60;
+  const segundos = Math.floor(diff / 1000) % 60;
+
+  document.getElementById('meses').textContent = meses + años * 12;
+  document.getElementById('dias').textContent = dias;
+  document.getElementById('horas').textContent = horas;
+  document.getElementById('minutos').textContent = minutos;
+  document.getElementById('segundos').textContent = segundos;
 }
+
 
 
 function irCarta() {
@@ -45,3 +60,4 @@ document.getElementById('mensajeHora').textContent = msg;
 setInterval(actualizarContador, 1000);
 actualizarContador();
 mensajePorHora();
+
