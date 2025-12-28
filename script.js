@@ -1,5 +1,5 @@
-const fechaInicio = new Date(2025, 9, 28, 12, 0, 0);
-// 28 de octubre 2025 (mes 9 porque enero = 0)
+const fechaInicio = new Date(2025, 9, 28, 0, 0, 0);
+// 28 de octubre 2025 a las 00:00
 
 function actualizarContador() {
   const ahora = new Date();
