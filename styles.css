@@ -25,12 +25,13 @@ body {
 /* tarjeta principal */
 .card {
   background: white;
-  padding: 2rem 1.5rem;
-  border-radius: 24px;
-  width: 92%;
-  max-width: 420px;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+  padding: 2.6rem 2rem;   /* más aire */
+  border-radius: 28px;
+  width: 94%;             /* un poco más ancho */
+  max-width: 460px;       /* antes 420 */
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
 }
+
 
 /* títulos */
 .card h1 {
@@ -46,17 +47,18 @@ body {
 /* contador */
 .contador {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr)); /* clave: no se sale */
-  gap: .6rem;
-  margin: 1.5rem 0;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .9rem;            /* más separación */
+  margin: 1.8rem 0;
 }
 
 .contador div {
   background: var(--claro);
-  border-radius: 14px;
-  padding: .6rem .3rem;
-  overflow: hidden;
+  border-radius: 16px;
+  padding: .9rem .6rem;  /* vuelve a ser grande */
+  min-height: 72px;      /* altura más elegante */
 }
+
 
 .contador span {
   display: block;
@@ -113,3 +115,4 @@ body {
   font-size: .7rem;
   color: #aaa;
 }
+
